@@ -40,5 +40,5 @@ For educational and research purposes only.
 Users are responsible for their own usage.
 
 <!-- AUTO-UPDATE-START -->
-_Last updated: never_
+_Last updated: 
 <!-- AUTO-UPDATE-END -->
