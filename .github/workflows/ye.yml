@@ -11,35 +11,35 @@ on:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Update README timestamp
         run: |
           DATE=$(date -u "+%Y-%m-%d %H:%M:%S UTC")
           python3 <<EOF
-from pathlib import Path
-
-readme = Path("README.md")
-text = readme.read_text(encoding="utf-8")
-
-start = "<!-- AUTO-UPDATE-START -->"
-end = "<!-- AUTO-UPDATE-END -->"
-
-if start not in text or end not in text:
-    raise SystemExit("AUTO-UPDATE markers not found")
-
-new_block = f"""{start}
-_Last updated: {DATE}_
-{end}"""
-
-before = text.split(start)[0]
-after = text.split(end)[1]
-
-readme.write_text(before + new_block + after, encoding="utf-8")
-EOF
-
+          from pathlib import Path
+          
+          readme = Path("README.md")
+          text = readme.read_text(encoding="utf-8")
+          
+          start = "<!-- AUTO-UPDATE-START -->"
+          end = "<!-- AUTO-UPDATE-END -->"
+          
+          if start not in text or end not in text:
+              raise SystemExit("AUTO-UPDATE markers not found")
+          
+          new_block = f"""{start}
+          _Last updated: $DATE_
+          {end}"""
+          
+          before = text.split(start)[0]
+          after = text.split(end)[1]
+          
+          readme.write_text(before + new_block + after, encoding="utf-8")
+          EOF
+      
       - name: Commit & push changes
         run: |
           git config user.name "github-actions"
