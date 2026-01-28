@@ -40,6 +40,6 @@ For educational and research purposes only.
 Users are responsible for their own usage.
 
 <!-- AUTO-UPDATE-START -->
-_Last updated: initializing..._
+_Last updated: 
 <!-- AUTO-UPDATE-END -->
 
